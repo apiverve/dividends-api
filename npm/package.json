@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/dividends",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Dividends returns the dividend-per-share history for a US public company by ticker - the amount reported each quarter and year straight from official SEC filings - plus a derived dividend-growth summary with year-over-year growth, multi-year growth rates and a consecutive-years-of-growth streak calculated for you.",
   "main": "index.js",
   "types": "index.d.ts",
