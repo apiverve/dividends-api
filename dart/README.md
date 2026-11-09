@@ -1,6 +1,6 @@
 # Dividends API - Dart/Flutter Client
 
-Dividends returns the dividend-per-share history for a US public company by ticker - the amount reported each quarter and year straight from official SEC filings - plus a derived dividend-growth summary with year-over-year growth, multi-year growth rates and a consecutive-years-of-growth streak calculated for you.
+Dividends returns the dividend-per-share history for a US public company by ticker - the amount reported each quarter and year straight from official SEC filings - plus a derived dividend-growth summary with year-over-year growth, multi-year growth rates and a consecutive-years-of-growth streak calculated for you. Paid plans can add dividend yield and the full-year payout ratio.
 
 [![pub package](https://img.shields.io/pub/v/apiverve_dividends.svg)](https://pub.dev/packages/apiverve_dividends)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -13,7 +13,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  apiverve_dividends: ^1.2.4
+  apiverve_dividends: ^1.2.5
 ```
 
 Then run:
@@ -36,7 +36,8 @@ void main() async {
     final response = await client.execute({
       'ticker': 'AAPL',
       'period': 'annual',
-      'limit': 10
+      'limit': 10,
+      'metrics': true
     });
 
     print('Status: ${response.status}');
@@ -136,6 +137,14 @@ void main() async {
           "perShare": 1.02
         }
       ]
+    },
+    "metrics": {
+      "trailingAnnualDividend": 1.02,
+      "trailingAnnualPeriod": "CY2025",
+      "dividendYield": 0.33,
+      "priceAsOf": "2026-08-17T19:27:12.559994467Z",
+      "payoutRatio": 13.67,
+      "payoutRatioFiscalYear": 2025
     }
   }
 }

@@ -67,6 +67,7 @@ class DividendsData {
   num? count;
   List<DividendsDataDividendsItem>? dividends;
   DividendsDataAnalytics? analytics;
+  DividendsDataMetrics? metrics;
 
   DividendsData({
     this.ticker,
@@ -80,6 +81,7 @@ class DividendsData {
     this.count,
     this.dividends,
     this.analytics,
+    this.metrics,
   });
 
   factory DividendsData.fromJson(Map<String, dynamic> json) => DividendsData(
@@ -94,6 +96,7 @@ class DividendsData {
       count: json['count'],
       dividends: (json['dividends'] as List?)?.map((e) => DividendsDataDividendsItem.fromJson(e)).toList(),
       analytics: json['analytics'] != null ? DividendsDataAnalytics.fromJson(json['analytics']) : null,
+      metrics: json['metrics'] != null ? DividendsDataMetrics.fromJson(json['metrics']) : null,
     );
 }
 
@@ -163,20 +166,50 @@ class DividendsDataAnalyticsAnnualhistoryItem {
     );
 }
 
+class DividendsDataMetrics {
+  num? trailingAnnualDividend;
+  String? trailingAnnualPeriod;
+  num? dividendYield;
+  String? priceAsOf;
+  num? payoutRatio;
+  num? payoutRatioFiscalYear;
+
+  DividendsDataMetrics({
+    this.trailingAnnualDividend,
+    this.trailingAnnualPeriod,
+    this.dividendYield,
+    this.priceAsOf,
+    this.payoutRatio,
+    this.payoutRatioFiscalYear,
+  });
+
+  factory DividendsDataMetrics.fromJson(Map<String, dynamic> json) => DividendsDataMetrics(
+      trailingAnnualDividend: json['trailingAnnualDividend'],
+      trailingAnnualPeriod: json['trailingAnnualPeriod'],
+      dividendYield: json['dividendYield'],
+      priceAsOf: json['priceAsOf'],
+      payoutRatio: json['payoutRatio'],
+      payoutRatioFiscalYear: json['payoutRatioFiscalYear'],
+    );
+}
+
 class DividendsRequest {
   String ticker;
   String? period;
   int? limit;
+  bool? metrics;
 
   DividendsRequest({
     required this.ticker,
     this.period,
     this.limit,
+    this.metrics,
   });
 
   Map<String, dynamic> toJson() => {
       'ticker': ticker,
       if (period != null) 'period': period,
       if (limit != null) 'limit': limit,
+      if (metrics != null) 'metrics': metrics,
     };
 }
