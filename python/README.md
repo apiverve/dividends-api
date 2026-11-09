@@ -1,7 +1,7 @@
 Dividends API
 ============
 
-Dividends returns the dividend-per-share history for a US public company by ticker - the amount reported each quarter and year straight from official SEC filings - plus a derived dividend-growth summary with year-over-year growth, multi-year growth rates and a consecutive-years-of-growth streak calculated for you.
+Dividends returns the dividend-per-share history for a US public company by ticker - the amount reported each quarter and year straight from official SEC filings - plus a derived dividend-growth summary with year-over-year growth, multi-year growth rates and a consecutive-years-of-growth streak calculated for you. Paid plans can add dividend yield and the full-year payout ratio.
 
 
 [![PyPI version](https://img.shields.io/pypi/v/apiverve-dividends.svg)](https://pypi.org/project/apiverve-dividends/)
@@ -46,7 +46,8 @@ api = DividendsAPIClient("[YOUR_API_KEY]")
 query = {
     "ticker": "AAPL",
     "period": "annual",
-    "limit": 10
+    "limit": 10,
+    "metrics": true
 }
 
 try:
@@ -88,7 +89,8 @@ Using the API client, you can perform requests to the API.
 query = {
     "ticker": "AAPL",
     "period": "annual",
-    "limit": 10
+    "limit": 10,
+    "metrics": true
 }
 ```
 
@@ -191,6 +193,14 @@ print(result)
           "perShare": 1.02
         }
       ]
+    },
+    "metrics": {
+      "trailingAnnualDividend": 1.02,
+      "trailingAnnualPeriod": "CY2025",
+      "dividendYield": 0.33,
+      "priceAsOf": "2026-08-17T19:27:12.559994467Z",
+      "payoutRatio": 13.67,
+      "payoutRatioFiscalYear": 2025
     }
   }
 }
@@ -212,7 +222,8 @@ api = DividendsAPIClient("[YOUR_API_KEY]")
 query = {
     "ticker": "AAPL",
     "period": "annual",
-    "limit": 10
+    "limit": 10,
+    "metrics": true
 }
 
 try:
@@ -237,7 +248,8 @@ api = DividendsAPIClient("[YOUR_API_KEY]")
 query = {
     "ticker": "AAPL",
     "period": "annual",
-    "limit": 10
+    "limit": 10,
+    "metrics": true
 }
 
 try:
@@ -275,7 +287,8 @@ from apiverve_dividends.apiClient import DividendsAPIClient, DividendsAPIClientE
 query = {
     "ticker": "AAPL",
     "period": "annual",
-    "limit": 10
+    "limit": 10,
+    "metrics": true
 }
 
 # Using context manager ensures proper cleanup
@@ -305,7 +318,8 @@ api = DividendsAPIClient("[YOUR_API_KEY]", debug=True)
 query = {
     "ticker": "AAPL",
     "period": "annual",
-    "limit": 10
+    "limit": 10,
+    "metrics": true
 }
 
 # Debug information will be printed to console
@@ -324,7 +338,8 @@ api = DividendsAPIClient("[YOUR_API_KEY]")
 query = {
     "ticker": "AAPL",
     "period": "annual",
-    "limit": 10
+    "limit": 10,
+    "metrics": true
 }
 
 try:

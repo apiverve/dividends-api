@@ -26,7 +26,8 @@ class DividendsAPIClient:
     VALIDATION_RULES = {
         "ticker": {"type": "string", "required": True, "minLength": 1, "maxLength": 6},
         "period": {"type": "string", "required": False},
-        "limit": {"type": "integer", "required": False, "min": 1, "max": 25}
+        "limit": {"type": "integer", "required": False, "min": 1, "max": 25},
+        "metrics": {"type": "boolean", "required": False}
     }
 
     # Format validation patterns
