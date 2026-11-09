@@ -10,7 +10,7 @@ module APIVerve
     #
     # @example Basic usage
     #   client = APIVerve::Dividends::Client.new(api_key: "your_api_key")
-    #   response = client.execute({ ticker: "AAPL", period: "annual", limit: 10 })
+    #   response = client.execute({ ticker: "AAPL", period: "annual", limit: 10, metrics: true })
     #   puts response
     #
     # @see https://apiverve.com/marketplace/dividends?utm_source=ruby&utm_medium=referral&utm_content=readme
@@ -19,7 +19,7 @@ module APIVerve
       DEFAULT_TIMEOUT = 30
 
       # Validation rules for parameters
-      VALIDATION_RULES = { 'ticker' => { type: 'string', required: true, min_length: 1, max_length: 6 }, 'period' => { type: 'string', required: false }, 'limit' => { type: 'integer', required: false, min: 1, max: 25 } }
+      VALIDATION_RULES = { 'ticker' => { type: 'string', required: true, min_length: 1, max_length: 6 }, 'period' => { type: 'string', required: false }, 'limit' => { type: 'integer', required: false, min: 1, max: 25 }, 'metrics' => { type: 'boolean', required: false } }
 
       # Format validation patterns
       FORMAT_PATTERNS = {

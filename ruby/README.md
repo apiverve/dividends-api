@@ -1,6 +1,6 @@
 # Dividends API - Ruby Gem
 
-Dividends returns the dividend-per-share history for a US public company by ticker - the amount reported each quarter and year straight from official SEC filings - plus a derived dividend-growth summary with year-over-year growth, multi-year growth rates and a consecutive-years-of-growth streak calculated for you.
+Dividends returns the dividend-per-share history for a US public company by ticker - the amount reported each quarter and year straight from official SEC filings - plus a derived dividend-growth summary with year-over-year growth, multi-year growth rates and a consecutive-years-of-growth streak calculated for you. Paid plans can add dividend yield and the full-year payout ratio.
 
 ## Installation
 
@@ -38,7 +38,8 @@ client = APIVerve::Dividends::Client.new(api_key: "YOUR_API_KEY")
 response = client.execute({
   ticker: "AAPL",
   period: "annual",
-  limit: 10
+  limit: 10,
+  metrics: true
 })
 
 # Print the response
@@ -50,7 +51,7 @@ puts response
 
 ```ruby
 begin
-  response = client.execute({ ticker: "AAPL", period: "annual", limit: 10 })
+  response = client.execute({ ticker: "AAPL", period: "annual", limit: 10, metrics: true })
   puts response["data"]
 rescue APIVerve::Dividends::ValidationError => e
   puts "Validation error: #{e.errors.join(', ')}"
@@ -159,6 +160,14 @@ client = APIVerve::Dividends::Client.new(
           "perShare": 1.02
         }
       ]
+    },
+    "metrics": {
+      "trailingAnnualDividend": 1.02,
+      "trailingAnnualPeriod": "CY2025",
+      "dividendYield": 0.33,
+      "priceAsOf": "2026-08-17T19:27:12.559994467Z",
+      "payoutRatio": 13.67,
+      "payoutRatioFiscalYear": 2025
     }
   }
 }
