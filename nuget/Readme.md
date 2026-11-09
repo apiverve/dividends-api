@@ -1,7 +1,7 @@
 Dividends API
 ============
 
-Dividends returns the dividend-per-share history for a US public company by ticker - the amount reported each quarter and year straight from official SEC filings - plus a derived dividend-growth summary with year-over-year growth, multi-year growth rates and a consecutive-years-of-growth streak calculated for you.
+Dividends returns the dividend-per-share history for a US public company by ticker - the amount reported each quarter and year straight from official SEC filings - plus a derived dividend-growth summary with year-over-year growth, multi-year growth rates and a consecutive-years-of-growth streak calculated for you. Paid plans can add dividend yield and the full-year payout ratio.
 
 
 [![NuGet version](https://img.shields.io/nuget/v/APIVerve.API.Dividends.svg)](https://www.nuget.org/packages/APIVerve.API.Dividends)
@@ -62,7 +62,8 @@ class Program
         var queryOptions = new DividendsQueryOptions {
             Ticker = "AAPL",
             Period = "annual",
-            Limit = 10
+            Limit = 10,
+            Metrics = true
         };
 
         // Make the API call
@@ -128,7 +129,8 @@ public class Example
         var queryOptions = new DividendsQueryOptions {
             Ticker = "AAPL",
             Period = "annual",
-            Limit = 10
+            Limit = 10,
+            Metrics = true
         };
 
         var response = await apiClient.ExecuteAsync(queryOptions);
@@ -162,7 +164,8 @@ public class Example
         var queryOptions = new DividendsQueryOptions {
             Ticker = "AAPL",
             Period = "annual",
-            Limit = 10
+            Limit = 10,
+            Metrics = true
         };
 
         var response = apiClient.Execute(queryOptions);
@@ -201,7 +204,8 @@ public class Example
         var queryOptions = new DividendsQueryOptions {
             Ticker = "AAPL",
             Period = "annual",
-            Limit = 10
+            Limit = 10,
+            Metrics = true
         };
 
         try
@@ -259,7 +263,8 @@ public class Example
         var queryOptions = new DividendsQueryOptions {
             Ticker = "AAPL",
             Period = "annual",
-            Limit = 10
+            Limit = 10,
+            Metrics = true
         };
 
         try
@@ -302,7 +307,8 @@ apiClient.AddCustomHeader("X-Request-ID", Guid.NewGuid().ToString());
 var queryOptions = new DividendsQueryOptions {
     Ticker = "AAPL",
     Period = "annual",
-    Limit = 10
+    Limit = 10,
+    Metrics = true
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -330,7 +336,8 @@ apiClient.SetLogger(message =>
 var queryOptions = new DividendsQueryOptions {
     Ticker = "AAPL",
     Period = "annual",
-    Limit = 10
+    Limit = 10,
+    Metrics = true
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -350,7 +357,8 @@ apiClient.SetRetryDelay(1500);        // Wait 1.5 seconds between retries (defau
 var queryOptions = new DividendsQueryOptions {
     Ticker = "AAPL",
     Period = "annual",
-    Limit = 10
+    Limit = 10,
+    Metrics = true
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -364,7 +372,8 @@ The API client implements `IDisposable` for proper resource cleanup:
 var queryOptions = new DividendsQueryOptions {
     Ticker = "AAPL",
     Period = "annual",
-    Limit = 10
+    Limit = 10,
+    Metrics = true
 };
 
 using (var apiClient = new DividendsAPIClient("[YOUR_API_KEY]"))
@@ -466,6 +475,14 @@ using (var apiClient = new DividendsAPIClient("[YOUR_API_KEY]"))
           "perShare": 1.02
         }
       ]
+    },
+    "metrics": {
+      "trailingAnnualDividend": 1.02,
+      "trailingAnnualPeriod": "CY2025",
+      "dividendYield": 0.33,
+      "priceAsOf": "2026-08-17T19:27:12.559994467Z",
+      "payoutRatio": 13.67,
+      "payoutRatioFiscalYear": 2025
     }
   }
 }

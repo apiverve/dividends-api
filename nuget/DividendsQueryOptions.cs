@@ -27,5 +27,11 @@ namespace APIVerve.API.Dividends
         /// </summary>
         [JsonProperty("limit")]
         public int? Limit { get; set; }
+
+        /// <summary>
+        /// Add a metrics block with the trailing annual dividend, dividend yield and payout ratio.
+        /// </summary>
+        [JsonProperty("metrics")]
+        public bool? Metrics { get; set; }
     }
 }

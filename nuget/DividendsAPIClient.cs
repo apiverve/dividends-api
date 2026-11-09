@@ -69,7 +69,8 @@ namespace APIVerve.API.Dividends
         {
             { "ticker", new ValidationRule { Type = "string", Required = true, MinLength = 1, MaxLength = 6 } },
             { "period", new ValidationRule { Type = "string", Required = false } },
-            { "limit", new ValidationRule { Type = "integer", Required = false, Min = 1, Max = 25 } }
+            { "limit", new ValidationRule { Type = "integer", Required = false, Min = 1, Max = 25 } },
+            { "metrics", new ValidationRule { Type = "boolean", Required = false } }
         };
 
         /// <summary>Format validation patterns</summary>

@@ -64,6 +64,9 @@ namespace APIVerve.API.Dividends
 
         [JsonProperty("analytics")]
         public Analytics Analytics { get; set; }
+
+        [JsonProperty("metrics")]
+        public Metrics Metrics { get; set; }
     }
 
     public partial class Analytics
@@ -112,6 +115,27 @@ namespace APIVerve.API.Dividends
 
         [JsonProperty("form")]
         public string Form { get; set; }
+    }
+
+    public partial class Metrics
+    {
+        [JsonProperty("trailingAnnualDividend")]
+        public double? TrailingAnnualDividend { get; set; }
+
+        [JsonProperty("trailingAnnualPeriod")]
+        public string TrailingAnnualPeriod { get; set; }
+
+        [JsonProperty("dividendYield")]
+        public double? DividendYield { get; set; }
+
+        [JsonProperty("priceAsOf")]
+        public DateTimeOffset? PriceAsOf { get; set; }
+
+        [JsonProperty("payoutRatio")]
+        public double? PayoutRatio { get; set; }
+
+        [JsonProperty("payoutRatioFiscalYear")]
+        public long? PayoutRatioFiscalYear { get; set; }
     }
 
     public partial class Premium
