@@ -17,7 +17,8 @@ const api = new dividendsAPI({
 var query = {
   ticker: "AAPL",
   period: "annual",
-  limit: 10
+  limit: 10,
+  metrics: true
 };
 
 // Make the API request using callback

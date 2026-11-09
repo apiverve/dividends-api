@@ -30,7 +30,7 @@ class dividendsWrapper {
         this.baseURL = 'https://api.apiverve.com/v1/dividends';
 
         // Validation rules for parameters (generated from schema)
-        this.validationRules = {"ticker":{"type":"string","required":true,"minLength":1,"maxLength":6},"period":{"type":"string","required":false},"limit":{"type":"integer","required":false,"min":1,"max":25}};
+        this.validationRules = {"ticker":{"type":"string","required":true,"minLength":1,"maxLength":6},"period":{"type":"string","required":false},"limit":{"type":"integer","required":false,"min":1,"max":25},"metrics":{"type":"boolean","required":false}};
     }
 
     /**

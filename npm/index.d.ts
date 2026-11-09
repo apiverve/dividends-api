@@ -36,6 +36,7 @@ declare module '@apiverve/dividends' {
       count:                  number | null;
       dividends:              Dividend[];
       analytics:              Analytics;
+      metrics:                Metrics;
   }
   
   interface Analytics {
@@ -58,6 +59,15 @@ declare module '@apiverve/dividends' {
       periodEnd: Date | null;
       perShare:  number | null;
       form:      null | string;
+  }
+  
+  interface Metrics {
+      trailingAnnualDividend: number | null;
+      trailingAnnualPeriod:   null | string;
+      dividendYield:          number | null;
+      priceAsOf:              Date | null;
+      payoutRatio:            number | null;
+      payoutRatioFiscalYear:  number | null;
   }
 
   export default class dividendsWrapper {

@@ -1,6 +1,6 @@
 # Dividends API
 
-Dividends returns the dividend-per-share history for a US public company by ticker - the amount reported each quarter and year straight from official SEC filings - plus a derived dividend-growth summary with year-over-year growth, multi-year growth rates and a consecutive-years-of-growth streak calculated for you.
+Dividends returns the dividend-per-share history for a US public company by ticker - the amount reported each quarter and year straight from official SEC filings - plus a derived dividend-growth summary with year-over-year growth, multi-year growth rates and a consecutive-years-of-growth streak calculated for you. Paid plans can add dividend yield and the full-year payout ratio.
 
 [![npm version](https://img.shields.io/npm/v/@apiverve/dividends.svg)](https://www.npmjs.com/package/@apiverve/dividends)
 
@@ -59,7 +59,8 @@ Using the API is simple. All you have to do is make a request. The API will retu
 var query = {
   ticker: "AAPL",
   period: "annual",
-  limit: 10
+  limit: 10,
+  metrics: true
 };
 
 api.execute(query, function (error, data) {
@@ -81,7 +82,8 @@ You can also use promises to make requests. The API returns a promise that you c
 var query = {
   ticker: "AAPL",
   period: "annual",
-  limit: 10
+  limit: 10,
+  metrics: true
 };
 
 api.execute(query)
@@ -104,7 +106,8 @@ async function makeRequest() {
     var query = {
   ticker: "AAPL",
   period: "annual",
-  limit: 10
+  limit: 10,
+  metrics: true
 };
 
     try {
@@ -207,6 +210,14 @@ async function makeRequest() {
           "perShare": 1.02
         }
       ]
+    },
+    "metrics": {
+      "trailingAnnualDividend": 1.02,
+      "trailingAnnualPeriod": "CY2025",
+      "dividendYield": 0.33,
+      "priceAsOf": "2026-08-17T19:27:12.559994467Z",
+      "payoutRatio": 13.67,
+      "payoutRatioFiscalYear": 2025
     }
   }
 }
