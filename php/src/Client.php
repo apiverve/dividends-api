@@ -15,7 +15,7 @@ use APIVerve\Dividends\Exceptions\ValidationException;
  * @example Basic usage
  * ```php
  * $client = new Client('your_api_key');
- * $response = $client->execute(['ticker' => 'AAPL', 'period' => 'annual', 'limit' => 10]);
+ * $response = $client->execute(['ticker' => 'AAPL', 'period' => 'annual', 'limit' => 10, 'metrics' => true]);
  * print_r($response);
  * ```
  *
@@ -36,7 +36,8 @@ class Client
     private const VALIDATION_RULES = [
         'ticker' => ['type' => 'string', 'required' => true, 'minLength' => 1, 'maxLength' => 6],
         'period' => ['type' => 'string', 'required' => false],
-        'limit' => ['type' => 'integer', 'required' => false, 'min' => 1, 'max' => 25]
+        'limit' => ['type' => 'integer', 'required' => false, 'min' => 1, 'max' => 25],
+        'metrics' => ['type' => 'boolean', 'required' => false]
     ];
 
     /**
