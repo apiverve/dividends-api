@@ -1,6 +1,6 @@
 # [Dividends API](https://apiverve.com/marketplace/dividends?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 
-Dividends returns the dividend-per-share history for a US public company by ticker - the amount reported each quarter and year straight from official SEC filings - plus a derived dividend-growth summary with year-over-year growth, multi-year growth rates and a consecutive-years-of-growth streak calculated for you.
+Dividends returns the dividend-per-share history for a US public company by ticker - the amount reported each quarter and year straight from official SEC filings - plus a derived dividend-growth summary with year-over-year growth, multi-year growth rates and a consecutive-years-of-growth streak calculated for you. Paid plans can add dividend yield and the full-year payout ratio.
 
 The Dividends API provides a simple, reliable way to integrate dividends functionality into your applications. Built for developers who need production-ready dividends capabilities without the complexity of building from scratch.
 
@@ -293,6 +293,14 @@ A real response from the Dividends API:
           "perShare": 1.02
         }
       ]
+    },
+    "metrics": {
+      "trailingAnnualDividend": 1.02,
+      "trailingAnnualPeriod": "CY2025",
+      "dividendYield": 0.33,
+      "priceAsOf": "2026-08-17T19:27:12.559994467Z",
+      "payoutRatio": 13.67,
+      "payoutRatioFiscalYear": 2025
     }
   }
 }
