@@ -43,7 +43,7 @@ paths:
           required: false
           description: >-
             Which series to return in the history list: quarterly (default) or
-            annual.
+            annual. Any other value returns a 400.
           example: annual
         - name: limit
           in: query
