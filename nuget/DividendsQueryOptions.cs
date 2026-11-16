@@ -17,7 +17,7 @@ namespace APIVerve.API.Dividends
         public string Ticker { get; set; }
 
         /// <summary>
-        /// Which series to return in the history list: quarterly (default) or annual.
+        /// Which series to return in the history list: quarterly (default) or annual. Any other value returns a 400.
         /// </summary>
         [JsonProperty("period")]
         public string Period { get; set; }
