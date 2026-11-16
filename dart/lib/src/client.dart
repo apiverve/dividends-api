@@ -50,7 +50,7 @@ final _formatPatterns = {
 ///
 /// Parameters:
 /// * [ticker] (required) - Stock ticker symbol (e.g. AAPL, MSFT, KO) [minLength: 1, maxLength: 6]
-/// * [period] - Which series to return in the history list: quarterly (default) or annual.
+/// * [period] - Which series to return in the history list: quarterly (default) or annual. Any other value returns a 400.
 /// * [limit] - Number of periods to return in the history list (1-25). Defaults to 5. [min: 1, max: 25]
 /// * [metrics] - Add a metrics block with the trailing annual dividend, dividend yield and payout ratio.
 class DividendsClient {
